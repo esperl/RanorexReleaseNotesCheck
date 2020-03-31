@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"askForPassword": false,
+				"database": "release_notes_check",
+				"dialect": "MySQL",
+				"name": "ReleaseNotesTest",
+				"port": 3306,
+				"server": "localhost",
+				"username": "root"
+			}
+		]
+	}
+}
