@@ -28,9 +28,6 @@ namespace RanorexReleaseNotesCheck.tests
 
 
             releaseNotesPage.ValidatePageType();
-            
-            // keywordChecker.checkReleaseNotes(databaseHelper.GetLastReleaseNotes());
-            // reportHelper.CreateReport(keywordChecker.keywords, databaseHelper.GetLastReleaseNotes(), checkKeywords);
 
             if (releaseNotesPage.CheckForNewRelease())
             {
