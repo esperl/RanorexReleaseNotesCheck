@@ -13,7 +13,7 @@ namespace RanorexReleaseNotesCheck.tests
         [Test]
         public void CheckForRelease()
         {
-            TcCheckForRelease();
+            runTest(TcCheckForRelease);
         }
 
         // [Test]
