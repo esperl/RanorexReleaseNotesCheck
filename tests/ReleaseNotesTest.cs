@@ -37,7 +37,10 @@ namespace RanorexReleaseNotesCheck.tests
                 if (!checkKeywords)
                 {
                     reportHelper.CreateReport(keywordChecker.keywords, databaseHelper.GetLastReleaseNotes(), checkKeywords);
-                    Assert.Fail("Found Release of Ranorex differs from the archived: \nArchived Release: \t" + databaseHelper.GetLastRelease() + "\nFound Release: \t" + newRelease[0][0] + "\n\nActions are needed!");
+                    Assert.Fail("Found Release of Ranorex differs from the archived: \n" +
+                                "Archived Release: \t" + databaseHelper.GetLastRelease() + "\n" + 
+                                "Found Release: \t" + newRelease[0][0] + "\n\n" + 
+                                "Actions are needed!");
                 }
                 else 
                 {
