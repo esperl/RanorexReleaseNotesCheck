@@ -32,7 +32,13 @@ namespace RanorexReleaseNotesCheck.Helper
                                         "WHERE id=(" +
                                         "SELECT MAX(id) FROM release_notes);";
             var result = ExecuteCommand(lastReleaseCommand);
-            return result[0];
+            try
+            {
+                return result[0];
+            } catch (ArgumentOutOfRangeException)
+            {
+                return "";
+            }
         }
 
         /// <summary>

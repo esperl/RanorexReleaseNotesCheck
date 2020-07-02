@@ -19,7 +19,7 @@ namespace RanorexReleaseNotesCheck.Abstracts
         //Default: "root"
         public static string username   = "root";
         //Default: ""
-        public static string password   = "Andagon#01";
+        public static string password   = "";
         //Default: "release_notes_check"
         public static string database   = "release_notes_check";
 
@@ -39,6 +39,34 @@ namespace RanorexReleaseNotesCheck.Abstracts
         {
             driver?.Quit();
         }
+
+        public void runTest(Action testFunction) 
+        {
+			try 
+            {
+				testFunction();
+			}
+			catch (Exception e) 
+            {
+				//The following code checks if the session got lost and the current window is a login-screen (which should never happen in the focus())
+				//			 	if (wd.FindElements(By.XPath(".//*[@id='Button_CD']/span[text()='Log In']")).Count>0){
+				if (driver!.FindElements(By.XPath(".//*[@id='submitButton']")).Count > 0) 
+                {
+                    Assert.Fail("!!Login-Screen displayed!! Original Exception in next Message");
+					// Rep.Error("!!Login-Screen displayed!! Original Exception in next Message");
+				}
+
+                Assert.Fail("Test failed with uncatched exception, see next message", true);
+                Assert.Fail(e.Message + " Stacktrace: " + e.StackTrace + " Inner Exception:" + e.InnerException);
+				// Rep.Error("Test failed with uncatched exception, see next message", true);
+				// Rep.Error(e.Message + " Stacktrace: " + e.StackTrace + " Inner Exception:" + e.InnerException);
+#if DEBUG
+				throw;
+#else
+				Assert.Fail();
+#endif
+			}
+		}
 
 	}
 }

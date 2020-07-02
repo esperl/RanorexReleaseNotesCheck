@@ -9,8 +9,15 @@ namespace RanorexReleaseNotesCheck.tests
     [TestFixture]
     public class ReleaseNotesTest : AbstractTestcase
     {
+
         [Test]
-        public void checkForRelease()
+        public void CheckForRelease()
+        {
+            TcCheckForRelease();
+        }
+
+        // [Test]
+        public void TcCheckForRelease()
         {
             if (driver is null)
             {
